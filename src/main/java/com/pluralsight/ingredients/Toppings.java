@@ -1,17 +1,25 @@
 package com.pluralsight.ingredients;
 
 public class Toppings {
+    private String type; //filter by category
     private String name;
-    private double toppingBasePrice;
+    private double basePrice;
+    private boolean isExtra;//adds an additional cost if true
 
-    public Toppings(String name, double toppingBasePrice) {
+    public Toppings(String type, String name, double basePrice, boolean isExtra) {
+        this.type = type;
         this.name = name;
-        this.toppingBasePrice = toppingBasePrice;
+        this.basePrice = basePrice;
+        this.isExtra = isExtra;
     }
 
+    public String getType() { return type; }
     public String getName() { return name; }
-    public double getToppingBasePrice() { return toppingBasePrice; }
+    public double getBasePrice() { return basePrice; }
+    public boolean isExtra() { return isExtra; }
 
+    public void setType(String type) { this.type = type;}
     public void setName(String name) { this.name = name; }
-    public void setToppingBasePrice(double toppingBasePrice) { this.toppingBasePrice = toppingBasePrice; }
+    public void setBasePrice(double basePrice) { this.basePrice = basePrice; }
+    public void setExtra(boolean extra) { isExtra = extra; }
 }

@@ -1,8 +1,5 @@
 package com.pluralsight.menu;
 
-import com.pluralsight.ingredients.Cheeses;
-import com.pluralsight.ingredients.Meats;
-import com.pluralsight.ingredients.Sauces;
 import com.pluralsight.ingredients.Toppings;
 import com.pluralsight.interfaces.Priceable;
 
@@ -13,18 +10,14 @@ public class Sandwich implements Priceable {
     private String breadType;
     private int breadSize;
     private boolean isToasted;
-
-    private List<Cheeses> cheeses = new ArrayList<>();
-    private List<Meats> meats = new ArrayList<>();
-    private List<Sauces> sauces = new ArrayList<>();
+;
     private List<Toppings> toppings = new ArrayList<>();
 
-    public Sandwich(String breadType, int breadSize, boolean isToasted) {
+    public Sandwich(String breadType, int breadSize, boolean isToasted, List<Toppings> toppings) {
         this.breadType = breadType;
         this.breadSize = breadSize;
         this.isToasted = isToasted;
-
-
+        this.toppings = toppings;
     }
 
     public String getBreadType() {
@@ -36,6 +29,7 @@ public class Sandwich implements Priceable {
     public boolean isToasted() {
         return isToasted;
     }
+    public List<Toppings> getToppings() { return toppings; }
 
     @Override
     public void totalPrice() {
