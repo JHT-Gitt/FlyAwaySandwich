@@ -6,7 +6,7 @@ import java.util.Scanner;
 
 public class HomeScreen {
 
-    public void greeting() {
+    public static void greeting() {
         System.out.println("Welcome to Fly Away Sandwich");
         System.out.println("Where every bite makes you feel like your flying the skies");
 

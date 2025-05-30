@@ -1,12 +1,12 @@
 package com.pluralsight.ingredients;
 
-public class Toppings {
+public class Topping {
     private String type; //filter by category
     private String name;
     private double basePrice;
-    private boolean isExtra;//adds an additional cost if true
+    private boolean isExtra;//additional cost if true
 
-    public Toppings(String type, String name, double basePrice, boolean isExtra) {
+    public Topping(String type, String name, double basePrice, boolean isExtra) {
         this.type = type;
         this.name = name;
         this.basePrice = basePrice;
