@@ -1,9 +1,13 @@
 package com.pluralsight.helpers;
 
+import com.pluralsight.ui.CheckoutScreen;
+
 import java.util.List;
 
 public class OrderHelper {
     public static void addSandwich() {
+
+
         List<String> breadTypes = List.of("White", "Wheat", "Rye", "Wrap");
         System.out.println("What type of bread would you like?");
         System.out.println("------------------------------------------------------------");
@@ -17,6 +21,10 @@ public class OrderHelper {
         meats.forEach(meat -> System.out.println("🥩 " + meat));
         System.out.println("------------------------------------------------------------");
         String selectedMeat = InputHelper.getString("Enter your protein: ");
+        System.out.println("Would you like extra " + selectedMeat + "? (yes/no)");
+        String extraToppingInput = InputHelper.getString("> ");
+        boolean isExtraTopping = extraToppingInput.equalsIgnoreCase("yes");
+
 
         List<String> cheeses = List.of("American", "Provolone", "Cheddar", "Swiss");
         System.out.println("🧀 Choose your Cheese:");
@@ -24,6 +32,10 @@ public class OrderHelper {
         cheeses.forEach(cheese -> System.out.println("🧀 " + cheese));
         System.out.println("------------------------------------------------------------");
         String selectedCheese = InputHelper.getString("Enter your cheese: ");
+        System.out.println("Would you like extra " + selectedCheese + "? (yes/no)");
+        String extraToppingInput = InputHelper.getString("> ");
+        boolean isExtraTopping = extraToppingInput.equalsIgnoreCase("yes");
+
 
         List<String> regularToppings = List.of(
                 "Lettuce", "Peppers", "Onions", "Tomatoes", "Jalapeños", "Cucumbers",
@@ -36,6 +48,9 @@ public class OrderHelper {
         while (true) {
             System.out.println("Enter topping:");
             String chosenTopping = InputHelper.getString("🥬: ");
+            System.out.println("Would you like extra " + chosenTopping + "? (yes/no)");
+            String extraToppingInput = InputHelper.getString("> ");
+            boolean isExtraTopping = extraToppingInput.equalsIgnoreCase("yes");
 
             if (chosenTopping.equalsIgnoreCase("done")) {
                 break;
@@ -51,7 +66,9 @@ public class OrderHelper {
             while (true) {
                 System.out.println("Enter sauce:");
                 String chosenSauce = InputHelper.getString("🧂: ");
-
+                System.out.println("Would you like extra " + chosenSauce + "? (yes/no)");
+                String extraSauceInput = InputHelper.getString("> ");
+                boolean isExtraSauce = extraSauceInput.equalsIgnoreCase("yes");
                 if (chosenSauce.equalsIgnoreCase("done")) {
                     break;
                 }
@@ -62,6 +79,7 @@ public class OrderHelper {
             public static void addChips () {
             }
             public static void checkout () {
+                new CheckoutScreen();
             }
             public static void cancelOrder () {
 

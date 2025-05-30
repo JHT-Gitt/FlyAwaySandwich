@@ -4,7 +4,7 @@ import com.pluralsight.helpers.InputHelper;
 import com.pluralsight.helpers.OrderHelper;
 
 public class OrderScreen {
-    public void orderS() {
+    public void display() {
         System.out.println("welcome to the order menu\n");
         System.out.println("1) Add Sandwich\n2) Add Drink\n 3) Add Chips\n4)Checkout\n0) Cancel Order");
         System.out.println("Please choose in number format");
