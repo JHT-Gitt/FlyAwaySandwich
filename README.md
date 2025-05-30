@@ -10,9 +10,12 @@ A Sandwich project CLI app that lets a user place a sandwich order, add drinks a
 and generate a receipt.
 
 
-## Home Sceen:
+## HomeScreen:
 
-## LoginScaned
+
+
+## LoginScreen:
+
 
 
 ## Favorite piece of code:
