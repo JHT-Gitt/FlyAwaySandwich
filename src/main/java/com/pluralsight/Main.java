@@ -1,10 +1,7 @@
 package com.pluralsight;
 
 import com.pluralsight.helpers.InputHelper;
-import com.pluralsight.ui.CheckoutScreen;
-import com.pluralsight.ui.HomeScreen;
 import com.pluralsight.ui.LoginScreen;
-import com.pluralsight.ui.OrderScreen;
 
 public class Main {
     public static void main(String[] args) {

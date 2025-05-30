@@ -14,7 +14,7 @@ public class OrderHelper {
         System.out.println("------------------------------------------------------------");
         sizes.forEach(size -> System.out.println("- " + size + "\""));
         System.out.println("------------------------------------------------------------");
-        String selectedSize = InputHelper.getString("Enter your sandwich size (just the number, like 4 or 8): ");
+        String selectedSize = InputHelper.getString("Enter your sandwich size (just the number, like 4, 8, or 12): ");
 
 
         List<String> breadTypes = List.of("White", "Wheat", "Rye", "Wrap");
@@ -79,17 +79,20 @@ public class OrderHelper {
             sauces.forEach(sauce -> System.out.println("🧂 " + sauce));
             System.out.println("------------------------------------------------------------");
             String selectedSauce = InputHelper.getString("Enter a sauce (type 'none' to skip or enter one at a time): ");
-            while (true) {
-                System.out.println("Enter sauce:");
-                String chosenSauce = InputHelper.getString("🧂: ");
-                System.out.println("Would you like extra " + chosenSauce + "? (yes/no)");
-                String extraSauce = InputHelper.getString("> ");
-                boolean isExtraSauce = extraSauce.equalsIgnoreCase("yes");
-                if (chosenSauce.equalsIgnoreCase("done")) {
-                    break;
-                }
+
             }
-        }}
+        while (true) {
+            System.out.println("Enter sauce:");
+            String chosenSauce = InputHelper.getString("🧂: ");
+            System.out.println("Would you like extra " + chosenSauce + "? (yes/no)");
+            String extraSauce = InputHelper.getString("> ");
+            boolean isExtraSauce = extraSauce.equalsIgnoreCase("yes");
+            if (chosenSauce != null && chosenSauce.trim().equalsIgnoreCase("done")) {
+                break;
+            }
+        }
+}
+
             public static void addDrink () {
                 List<String> drinkOptions = List.of("Coke", "Sprite", "Lemonade", "Water");
                 System.out.println("🥤 Choose a Drink:");

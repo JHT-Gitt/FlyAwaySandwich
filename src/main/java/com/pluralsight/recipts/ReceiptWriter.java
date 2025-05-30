@@ -1,5 +1,9 @@
 package com.pluralsight.recipts;
 
+import com.pluralsight.menu.Sandwich;
+
+import java.io.BufferedWriter;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -11,27 +15,24 @@ public class ReceiptWriter {
     private static DateTimeFormatter fileNameFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
     private static DateTimeFormatter receiptDateFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 
-    //builds a full file
-    private static String receiptFileName(LocalDateTime orderDate) {
-        return  orderDate.format(fileNameFormatter) + "txt";
-    }
-    public static void writeReceipt(String receiptText) {
+
+    public static String writeReceipt(Sandwich sandwich) {
         LocalDateTime now = LocalDateTime.now();
-        String fileName = receiptFileName(now);
-        Path folder = Paths.get("receipts"); // Folder name
-        Path fullPath = folder.resolve(fileName);
+        String fileName = "receipt_" + now.format(fileNameFormatter) + ".txt";
+        String receiptContent = String.format("Receipt - %s\n\n%s", now.format(receiptDateFormatter), sandwich.toString());
 
-        try {
-            Files.createDirectories(folder); // Ensure "receipts/" folder exists
-            Files.write(fullPath, receiptText.getBytes());
-            System.out.println("✅ Receipt saved to " + fullPath);
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(fileName))) {
+            writer.write(receiptContent);
+            System.out.println("🧾 Receipt saved as: " + fileName);
         } catch (IOException e) {
-            System.out.println("⚠️ Error writing receipt: " + e.getMessage());
+            System.err.println("Error writing receipt: " + e.getMessage());
         }
+
+        return fileName;
+    }
+        public static String getFormattedDateTime() {
+            return LocalDateTime.now().format(receiptDateFormatter);
+        }
+
     }
 
-    public static String getFormattedDateTime() {
-        return LocalDateTime.now().format(receiptDateFormatter);
-    }
-
-}

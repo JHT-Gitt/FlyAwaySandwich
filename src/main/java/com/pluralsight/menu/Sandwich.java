@@ -8,7 +8,7 @@ import java.util.ArrayList;
 
 public class Sandwich implements Priceable {
     private String breadType;
-    private int breadSize;
+    private static int breadSize;
     private double basePrice;
     private boolean isToasted;
 
