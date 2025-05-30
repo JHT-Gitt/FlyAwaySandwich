@@ -14,11 +14,15 @@ public class Sandwich implements Priceable {
 
     private List<Topping> toppings = new ArrayList<>();
 
-    public Sandwich(String breadType, int breadSize, boolean isToasted, List<Topping> toppings) {
+    public Sandwich(String breadType, int breadSize, double basePrice, boolean isToasted, List<Topping> toppings) {
         this.breadType = breadType;
         this.breadSize = breadSize;
+        this.basePrice = getBreadPrice();
         this.isToasted = isToasted;
         this.toppings = toppings;
+    }
+
+    public Sandwich(String selectedSize, String selectedBreadType) {
     }
 
     public String getBreadType() {
@@ -35,7 +39,7 @@ public class Sandwich implements Priceable {
     public void setToasted(boolean toasted) { isToasted = toasted; }
     public void setToppings(List<Topping> toppings) { this.toppings = toppings; }
 
-    private double getBreadPrice() {
+    public static double getBreadPrice() {
         return switch (breadSize) {
             case 4 -> 5.50;
             case 8 -> 7.00;
@@ -62,4 +66,7 @@ public class Sandwich implements Priceable {
 
         return total;
     }
-}
+    @Override
+    public String toString() {
+        return breadSize + "\" " + (isToasted ? "Toasted" : "Not Toasted") + " " + breadType + " Sandwich with " + toppings.size() + " toppings. $" + totalPrice();
+}}
