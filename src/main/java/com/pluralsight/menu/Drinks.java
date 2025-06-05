@@ -22,4 +22,7 @@ public class Drinks {
     public void setSize(String size) { this.size = size; }
     public void setPrice(double price) { this.price = price; }
     public void setFountainDrink(boolean fountainDrink) { isFountainDrink = fountainDrink; }
+
+    public void addToOrder() {
+    }
 }

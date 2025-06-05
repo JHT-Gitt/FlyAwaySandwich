@@ -11,7 +11,7 @@ public class LoginScreen {
         User user = new User("", "", false);
         LoginManager login = new LoginManager("", "");
 
-        System.out.println("Hello");
+        System.out.println("Hello"); //
         System.out.println("Would you like to\n1) Create Acount\n2) Login\n3) Continue as Guest");
         userInput = InputHelper.getInt("");
 

@@ -11,11 +11,26 @@ public class OrderScreen {
         InputHelper.getInt("");
 
         switch (InputHelper.getInt("")) {
-            case 1 -> OrderHelper.addSandwich();
-            case 2 -> OrderHelper.addDrink();
-            case 3 -> OrderHelper.addChips();
-            case 4 -> OrderHelper.checkout();
-            case 0 -> OrderHelper.cancelOrder();
+            case 1 -> {
+                OrderHelper.addSandwich();
+                break;
+            }
+            case 2 -> {
+                OrderHelper.addDrink();
+                break;
+            }
+            case 3 -> {
+                OrderHelper.addChips();
+                break;
+            }
+            case 4 -> {
+                OrderHelper.checkout();
+                break;
+            }
+            case 0 -> {
+                OrderHelper.cancelOrder();
+                return;
+            }
             default -> throw new IllegalStateException("Unexpected value: " + InputHelper.getInt(""));
         }
     }

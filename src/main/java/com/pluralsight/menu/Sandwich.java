@@ -69,4 +69,9 @@ public class Sandwich implements Priceable {
     @Override
     public String toString() {
         return breadSize + "\" " + (isToasted ? "Toasted" : "Not Toasted") + " " + breadType + " Sandwich with " + toppings.size() + " toppings. $" + totalPrice();
-}}
+}
+
+    public void addTopping(Topping topping) {
+        toppings.add(topping);
+    }
+}

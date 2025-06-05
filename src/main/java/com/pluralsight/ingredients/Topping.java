@@ -13,6 +13,9 @@ public class Topping {
         this.isExtra = isExtra;
     }
 
+    public Topping(String selectedMeat, String meat, boolean isExtraMeat) {
+    }
+
     public String getType() { return type; }
     public String getName() { return name; }
     public double getBasePrice() { return basePrice; }
@@ -22,4 +25,9 @@ public class Topping {
     public void setName(String name) { this.name = name; }
     public void setBasePrice(double basePrice) { this.basePrice = basePrice; }
     public void setExtra(boolean extra) { isExtra = extra; }
+
+    @Override
+    public String toString() {
+        return name + (isExtra ? " (extra)" : "");
+    }
 }

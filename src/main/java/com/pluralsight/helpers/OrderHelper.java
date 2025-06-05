@@ -1,5 +1,7 @@
 package com.pluralsight.helpers;
 
+import com.pluralsight.ingredients.Topping;
+import com.pluralsight.menu.Drinks;
 import com.pluralsight.menu.Order;
 import com.pluralsight.menu.Sandwich;
 import com.pluralsight.ui.CheckoutScreen;
@@ -36,9 +38,9 @@ public class OrderHelper {
         System.out.println("Would you like extra " + selectedMeat + "? (yes/no)");
         String extraMeat = InputHelper.getString("> ");
         boolean isExtraMeat = extraMeat.equalsIgnoreCase("yes");
-        System.out.println("You chose " + selectedMeat +  " as your protein");
-        
-
+        System.out.println("You chose " + selectedMeat + " as your protein");
+        Topping meatTopping = new Topping(selectedMeat, "meat", isExtraMeat);
+        sandwich.addTopping(meatTopping);
 
         List<String> cheeses = List.of("American", "Provolone", "Cheddar", "Swiss");
         System.out.println("🧀 Choose your Cheese:");
@@ -50,8 +52,10 @@ public class OrderHelper {
         String extraCheese = InputHelper.getString("> ");
         boolean isExtraCheese = extraCheese.equalsIgnoreCase("yes");
         System.out.println("Would you like it toasted ? (yes/no)");
-        String toasted =  InputHelper.getString("> ");
+        String toasted = InputHelper.getString("> ");
         boolean isToasted = toasted.equalsIgnoreCase("yes");
+        Topping cheeseTopping = new Topping(selectedCheese, "cheese", isExtraCheese);
+        sandwich.addTopping(cheeseTopping);
 
         List<String> regularToppings = List.of(
                 "Lettuce", "Peppers", "Onions", "Tomatoes", "Jalapeños", "Cucumbers",
@@ -60,40 +64,36 @@ public class OrderHelper {
         System.out.println("------------------------------------------------------------");
         regularToppings.forEach(topping -> System.out.println("🥬 " + topping));
         System.out.println("------------------------------------------------------------");
-        String selectedTopping = InputHelper.getString("Enter a topping (type 'none' to skip or enter one at a time): ");
+        String selectedTopping = InputHelper.getString("Enter a topping (type 'done' to skip or enter one at a time): ");
         while (true) {
-            System.out.println("Enter topping:");
             String chosenTopping = InputHelper.getString("🥬: ");
+            if (chosenTopping.equalsIgnoreCase("done")) break;
+
             System.out.println("Would you like extra " + chosenTopping + "? (yes/no)");
-            String extraToppingInput = InputHelper.getString("> ");
-            boolean isExtraTopping = extraToppingInput.equalsIgnoreCase("yes");
-
-            if (chosenTopping.equalsIgnoreCase("done")) {
-                break;
-            }
-
-            List<String> sauces = List.of(
-                    "Mayo", "Mustard", "Ketchup", "Ranch", "Thousand Island", "Vinaigrette");
-            System.out.println("🧂 Sauces");
-            System.out.println("------------------------------------------------------------");
-            sauces.forEach(sauce -> System.out.println("🧂 " + sauce));
-            System.out.println("------------------------------------------------------------");
-            String selectedSauce = InputHelper.getString("Enter a sauce (type 'none' to skip or enter one at a time): ");
-
-            }
-        while (true) {
-            System.out.println("Enter sauce:");
-            String chosenSauce = InputHelper.getString("🧂: ");
-            System.out.println("Would you like extra " + chosenSauce + "? (yes/no)");
-            String extraSauce = InputHelper.getString("> ");
-            boolean isExtraSauce = extraSauce.equalsIgnoreCase("yes");
-            if (chosenSauce != null && chosenSauce.trim().equalsIgnoreCase("done")) {
-                break;
-            }
+            boolean isExtraTopping = InputHelper.getString("> ").equalsIgnoreCase("yes");
+            Topping regularTopping = new Topping(chosenTopping, "regular", isExtraTopping);
+            sandwich.addTopping(regularTopping);
         }
-}
+        List<String> sauces = List.of(
+                "Mayo", "Mustard", "Ketchup", "Ranch", "Thousand Island", "Vinaigrette");
 
-            public static void addDrink () {
+        System.out.println("🧂 Sauces");
+        System.out.println("------------------------------------------------------------");
+        sauces.forEach(sauce -> System.out.println("🧂 " + sauce));
+        System.out.println("------------------------------------------------------------");
+        System.out.println("Enter sauces one at a time. Type 'done' when finished.");
+
+        while (true) {
+            String chosenSauce = InputHelper.getString("🧂: ");
+            if (chosenSauce.equalsIgnoreCase("done")) break;
+
+            System.out.println("Would you like extra " + chosenSauce + "? (yes/no)");
+            boolean isExtraSauce = InputHelper.getString("> ").equalsIgnoreCase("yes");
+            Topping sauceTopping = new Topping(chosenSauce, "sauce", isExtraSauce);
+            sandwich.addTopping(sauceTopping);
+        }
+    }
+            public static void addDrink() {
                 List<String> drinkOptions = List.of("Coke", "Sprite", "Lemonade", "Water");
                 System.out.println("🥤 Choose a Drink:");
                 drinkOptions.forEach(drink -> System.out.println("🥤 " + drink));
@@ -104,7 +104,11 @@ public class OrderHelper {
                 drinkSizes.forEach(size -> System.out.println("- " + size));
                 String selectedSize = InputHelper.getString("Enter your drink size: ");
                 System.out.println("You chose: " + selectedSize + " " + selectedDrink);
+                //Drinks drink = new Drinks(selectedDrink, selectedSize, price, true);
+                //drink.addToOrder();
+
             }
+
             public static void addChips () {
                 List<String> chipOptions = List.of("BBQ", "Salt & Vinegar", "Plain", "Doritos", "Cheetos");
                 System.out.println("🥔 Choose a Chip:");
@@ -117,7 +121,7 @@ public class OrderHelper {
                 CheckoutScreen.display();
             }
             public static void cancelOrder () {
-
+                System.out.println("Order canceled");
             }
         }
 
