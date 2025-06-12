@@ -1,5 +1,6 @@
 package com.pluralsight.interfaces;
 
 public interface Priceable {
-    double totalPrice();
+    double totalPrice(int size);
+    String name();
 }

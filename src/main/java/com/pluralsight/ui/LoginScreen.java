@@ -56,7 +56,8 @@ public class LoginScreen {
             }
 
         } else if (userInput == 3) {
-            HomeScreen.greeting();
+
+            //HomeScreen.greeting();
         } else {
             System.out.println("Invalid option");
         }

@@ -1,0 +1,36 @@
+--- FULL ORDER RECEIPT ---
+
+Sandwich: 1
+
+Current Order
+Bread Type: rye
+Size: 4" - $5.50
+Toasted: false
+ - ham : $1.00
+ - american : $0.75
+ - onions
+ - mayo
+Extra Meat: $0.0
+Extra Cheese: $0.3
+
+Sandwich Total: $7.55
+--------------------------
+
+Sandwich: 2
+
+Current Order
+Bread Type: wheat
+Size: 8" - $7.00
+Toasted: true
+ - steak : $2.00
+ - swiss : $1.50
+ - cucumbers
+ - mustard
+Extra Meat: $1.0
+Extra Cheese: $0.0
+
+Sandwich Total: $11.50
+--------------------------
+Grand Total: $19.05
+
+------------------------------

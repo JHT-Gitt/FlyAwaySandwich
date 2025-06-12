@@ -1,0 +1,22 @@
+--- FULL ORDER RECEIPT ---
+
+Sandwich: 1
+
+Current Order
+Bread Type: wheat
+Size: 12" - $8.50
+Toasted: true
+ - bacon : $3.00
+ - swiss : $2.25
+ - pcikles
+ - lettuce
+ - no
+ - mayo
+Extra Meat: $1.5
+Extra Cheese: $0.9
+
+Sandwich Total: $16.15
+--------------------------
+Grand Total: $16.15
+
+------------------------------
