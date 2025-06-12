@@ -23,6 +23,7 @@ public class Drinks {
     public void setPrice(double price) { this.price = price; }
     public void setFountainDrink(boolean fountainDrink) { isFountainDrink = fountainDrink; }
 
-    public void addToOrder() {
+
+    public void add(Drinks drink) {
     }
 }

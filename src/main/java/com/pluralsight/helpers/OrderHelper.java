@@ -1,6 +1,7 @@
 package com.pluralsight.helpers;
 
 import com.pluralsight.ingredients.Topping;
+import com.pluralsight.menu.Chips;
 import com.pluralsight.menu.Drinks;
 import com.pluralsight.menu.Order;
 import com.pluralsight.menu.Sandwich;
@@ -104,8 +105,8 @@ public class OrderHelper {
                 drinkSizes.forEach(size -> System.out.println("- " + size));
                 String selectedSize = InputHelper.getString("Enter your drink size: ");
                 System.out.println("You chose: " + selectedSize + " " + selectedDrink);
-                //Drinks drink = new Drinks(selectedDrink, selectedSize, price, true);
-                //drink.addToOrder();
+                Drinks drink = new Drinks(selectedDrink, selectedSize, price, true);
+                Order.addDrinks(drink);
 
             }
 
@@ -115,6 +116,8 @@ public class OrderHelper {
                 chipOptions.forEach(chip -> System.out.println("🥔 " + chip));
                 String selectedChip = InputHelper.getString("Enter your chip choice: ");
                 System.out.println("You picked: " + selectedChip);
+                Chips chips = new Chips(selectedChip, price);
+                Order.addChip(chips);
             }
             public static void checkout () {
                 System.out.println(currentOrder.buildReceipt());

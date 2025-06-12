@@ -3,18 +3,18 @@ package com.pluralsight.menu;
 import java.util.ArrayList;
 import java.util.List;
 public class Order {private List<Sandwich> sandwiches = new ArrayList<>();
-    private List<String> drinks = new ArrayList<>();
-    private List<String> chips = new ArrayList<>();
+    private static List<Drinks> drinks = new ArrayList<>();
+    private static List<Chips> chips = new ArrayList<>();
 
     public void addSandwich(Sandwich sandwich) {
         sandwiches.add(sandwich);
     }
 
-    public void addDrink(String drink) {
-        drinks.add(drink);
+    public static void addDrinks(Drinks drink) {
+        drink.add(drink);
     }
 
-    public void addChips(String chip) {
+    public static void addChip(Chips chip) {
         chips.add(chip);
     }
 
@@ -22,11 +22,11 @@ public class Order {private List<Sandwich> sandwiches = new ArrayList<>();
         return sandwiches;
     }
 
-    public List<String> getDrinks() {
+    public List<Drinks> getDrinks() {
         return drinks;
     }
 
-    public List<String> getChips() {
+    public List<Chips> getChips() {
         return chips;
     }
 
